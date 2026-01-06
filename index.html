@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shachin Advertising Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background-color: #00348d;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .top-nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .top-nav .social-icons i {
+            margin-left: 10px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .top-nav .social-icons i:hover {
+            color: #00348d;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background-color: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: #00348d;
+        }
+
+        .main-nav a.active {
+            color: #00348d;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #00348d;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #00348d;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #00348d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: #00348d;
+            bottom: -10px;
+            left: 20%;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            line-height: 1.3;
+        }
+
+        /* What We Do Section */
+        .what-we-do {
+            padding: 80px 20px;
+            background-color: #f5f5f5;
+        }
+
+        .what-we-do-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .what-we-do-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .what-we-do-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #00348d, rgb(23, 96, 255));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .what-we-do-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00348d;
+            font-weight: bold;
+        }
+
+        /* Clients Section */
+        .clients-section {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .client-logos-container {
+            overflow: hidden;
+            position: relative;
+            margin: 40px 0;
+            padding: 20px 0;
+        }
+
+        .logo-track {
+            display: flex;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        .logo-track-reverse {
+            display: flex;
+            animation: scroll-right 30s linear infinite;
+        }
+
+        .client-logo {
+            flex: 0 0 auto;
+            width: 200px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .client-logo img:hover {
+            filter: grayscale(0%);
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #00348d;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column a:hover {
+            color: #00348d;
+            transform: translateX(5px);
+        }
+
+        .footer-column i {
+            width: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background-color: #00348d;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: #00348d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .top-nav {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .button-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 15px;
+            }
+            
+            .client-logo {
+                width: 150px;
+                margin: 0 10px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <ul>
+            <li><i class="fas fa-envelope"></i><a href="mailto:shachingrafix@gmail.com"> shachingrafix@gmail.com</a></li>
+            <li><i class="fas fa-clock"></i> Mon - Sat: 9.00 am - 5.30 pm</li>
+        </ul>
+        <ul class="social-icons">
+            <li>For Advertising Solutions Get in Touch With Us 
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <img src="Logo.jpg" alt="Shachin Advertising Logo">
+            <span>Shachin Advertising</span>
+        </div>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="#clients">Our Clients</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>We help brands stand tall outdoors and shine online through bold advertising and creative design.</h1>
+        <p>"Turn Streets Into Stories, and Designs Into Impact."</p>
+        
+        <div class="button-wrapper">
+            <a href="Projects.html"><button class="btn btn-primary">Our Projects</button></a>
+            <a href="https://wa.link/tfdxme" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive advertising solutions tailored to your brand's unique needs</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Outdoor<br>Advertising</h3>
+            </div>
+            <div class="service-card">
+                <h3>Graphic<br>Designing</h3>
+            </div>
+            <div class="service-card">
+                <h3>Digital & Offset<br>Printing</h3>
+            </div>
+            <div class="service-card">
+                <h3>Indoor<br>Advertising</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do" id="what-we-do">
+        <div class="section-title">
+            <h2>What We Do</h2>
+            <p>We provide comprehensive advertising solutions to help your brand stand out in today's competitive market</p>
+        </div>
+        
+        <div class="what-we-do-grid">
+            <div class="what-we-do-card">
+                <div class="service-icon">
+                    <i class="fas fa-print"></i>
+                </div>
+                <h3>Printing</h3>
+                <ul class="service-features">
+                    <li>High-quality offset printing</li>
+                    <li>Digital printing solutions</li>
+                    <li>Large format printing</li>
+                    <li>Custom finishing options</li>
+                </ul>
+            </div>
+            
+            <div class="what-we-do-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Advertising</h3>
+                <ul class="service-features">
+                    <li>Creative Outdoor Advertising</li>
+                    <li>Backdrop Planning</li>
+                    <li>Outdoor advertising</li>
+                    <li>Brand positioning</li>
+                </ul>
+            </div>
+
+            <div class="what-we-do-card">
+                <div class="service-icon">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h3>Designing</h3>
+                <ul class="service-features">
+                    <li>Creative graphic design</li>
+                    <li>Brand identity development</li>
+                    <li>Logo Creation</li>
+                    <li>Color Conversion</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients-section" id="clients">
+        <div class="section-title">
+            <h2>Our Clients</h2>
+            <p>Trusted by leading brands and businesses across industries</p>
+        </div>
+        
+        <!-- Left to Right Logo Carousel -->
+        <div class="client-logos-container">
+            <div class="logo-track">
+                <div class="client-logo">
+                    <img src="https://streetburger.lk/wp-content/uploads/2023/11/SteetBurger-Logo-Alt-300x132.webp" alt="Street Burger">
+                </div>
+                <div class="client-logo">
+                    <img src="https://havelockcitymall.lk/wp-content/themes/astra/assest/Hcmlogo.png" alt="Havelock City Mall">
+                </div>
+                <div class="client-logo">
+                    <img src="https://hybridcampus.lk/asserts/front/images/common/hic.png" alt="Hybrid Campus">
+                </div>
+                <div class="client-logo">
+                    <img src="https://images.seeklogo.com/logo-png/24/1/bank-of-ceylon-logo-png_seeklogo-247588.png" alt="BOC">
+                </div>
+                <div class="client-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ1wdQXXcBcJ15y4Vp3tl-e2XpN6trcMzC-Q&s" alt="Arpico">
+                </div>
+                <div class="client-logo">
+                    <img src="https://cdn.enfsolar.com/ID/logo/6709442c178d5.png?v=1" alt="Power Consult">
+                </div>
+                <div class="client-logo">
+                    <img src="https://lankainformation.lk/media/com_mtree/images/listings/m/4872.png" alt="Aspire College">
+                </div>
+                <div class="client-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Logo_ccplc.png/1200px-Logo_ccplc.png" alt="Cargills">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="client-logo">
+                    <img src="https://streetburger.lk/wp-content/uploads/2023/11/SteetBurger-Logo-Alt-300x132.webp" alt="Street Burger">
+                </div>
+                <div class="client-logo">
+                    <img src="https://havelockcitymall.lk/wp-content/themes/astra/assest/Hcmlogo.png" alt="Havelock City Mall">
+                </div>
+                <div class="client-logo">
+                    <img src="https://hybridcampus.lk/asserts/front/images/common/hic.png" alt="Hybrid Campus">
+                </div>
+                <div class="client-logo">
+                    <img src="https://images.seeklogo.com/logo-png/24/1/bank-of-ceylon-logo-png_seeklogo-247588.png" alt="BOC">
+                </div>
+                <div class="client-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ1wdQXXcBcJ15y4Vp3tl-e2XpN6trcMzC-Q&s" alt="Arpico">
+                </div>
+                <div class="client-logo">
+                    <img src="https://cdn.enfsolar.com/ID/logo/6709442c178d5.png?v=1" alt="Power Consult">
+                </div>
+                <div class="client-logo">
+                    <img src="https://lankainformation.lk/media/com_mtree/images/listings/m/4872.png" alt="Aspire College">
+                </div>
+                <div class="client-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Logo_ccplc.png/1200px-Logo_ccplc.png" alt="Cargills">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right to Left Logo Carousel -->
+        <div class="client-logos-container">
+            <div class="logo-track-reverse">
+                <div class="client-logo">
+                    <img src="https://w7.pngwing.com/pngs/840/29/png-transparent-aia-group-life-insurance-american-international-group-finance-quantity-miscellaneous-company-text-thumbnail.png" alt="AIA Insurance">
+                </div>
+                <div class="client-logo">
+                    <img src="https://island.lk/wp-content/uploads/2022/02/dialog-smart-home.jpg" alt="Dialog">
+                </div>
+                <div class="client-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Sri_Lanka_Insurance_new_logo.jpg" alt="Sri Lanka Insurance">
+                </div>
+                <div class="client-logo">
+                    <img src="https://www.softlogic.lk/images/220518130506footer_logo.png" alt="Softlogic">
+                </div>
+                <div class="client-logo">
+                    <img src="https://www.hayleys.com/wp-content/uploads/2020/11/Hayleys_logo-1.png" alt="Hayleys">
+                </div>
+                <div class="client-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSETv2e-a--aLH0v--oO8K8RDh1gegCdy3JhA&s" alt="HNB">
+                </div>
+                <div class="client-logo">
+                    <img src="https://e7.pngegg.com/pngimages/470/502/png-clipart-logo-insurance-brand-product-trademark-assurance-blue-text.png" alt="Janashakthi">
+                </div>
+                <div class="client-logo">
+                    <img src="https://www.lolc.com.kh/userfiles/media/lolc.com.kh/symbol_1.png" alt="LOLC">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="client-logo">
+                    <img src="https://w7.pngwing.com/pngs/840/29/png-transparent-aia-group-life-insurance-american-international-group-finance-quantity-miscellaneous-company-text-thumbnail.png" alt="AIA Insurance">
+                </div>
+                <div class="client-logo">
+                    <img src="https://island.lk/wp-content/uploads/2022/02/dialog-smart-home.jpg" alt="Dialog">
+                </div>
+                <div class="client-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Sri_Lanka_Insurance_new_logo.jpg" alt="Sri Lanka Insurance">
+                </div>
+                <div class="client-logo">
+                    <img src="https://www.softlogic.lk/images/220518130506footer_logo.png" alt="Softlogic">
+                </div>
+                <div class="client-logo">
+                    <img src="https://www.hayleys.com/wp-content/uploads/2020/11/Hayleys_logo-1.png" alt="Hayleys">
+                </div>
+                <div class="client-logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSETv2e-a--aLH0v--oO8K8RDh1gegCdy3JhA&s" alt="HNB">
+                </div>
+                <div class="client-logo">
+                    <img src="https://e7.pngegg.com/pngimages/470/502/png-clipart-logo-insurance-brand-product-trademark-assurance-blue-text.png" alt="Janashakthi">
+                </div>
+                <div class="client-logo">
+                    <img src="https://www.lolc.com.kh/userfiles/media/lolc.com.kh/symbol_1.png" alt="LOLC">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Shachin Advertising</h3>
+                <p>We help brands stand tall outdoors and shine online through bold advertising and creative design. With years of experience, we deliver exceptional results that drive business growth.</p>
+                <p>"Turn Streets Into Stories, and Designs Into Impact."</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/ShachinAdvertisingServices/"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="Projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                    <li><a href="#clients"><i class="fas fa-chevron-right"></i> Our Clients</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="Projects.html"><i class="fas fa-chevron-right"></i> Outdoor Advertising</a></li>
+                    <li><a href="Projects.html"><i class="fas fa-chevron-right"></i> Graphic Designing</a></li>
+                    <li><a href="Projects.html"><i class="fas fa-chevron-right"></i> Digital & Offset Printing</a></li>
+                    <li><a href="Projects.html"><i class="fas fa-chevron-right"></i> Indoor Advertising</a></li>
+                    <li><a href="Projects.html"><i class="fas fa-chevron-right"></i> Brand Consulting</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Colombo, Sri Lanka</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>shachingrafix@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+94 76 676 7309</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Business Hours</strong>
+                            <p>Mon - Sat: 9.00 am - 5.30 pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Shachin Advertising Services. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b00;"></i></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.main-nav a, .footer-column a[href^="#"]');
+            
+            // Add click event to each link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section ID
+                    const targetId = this.getAttribute('href');
+                    
+                    // Skip if it's not a section link
+                    if (targetId === '#') return;
+                    
+                    // Get the target element
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Calculate the offset for sticky navigation
+                        const navHeight = document.querySelector('.main-nav').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navHeight - 20;
+                        
+                        // Smooth scroll to the target
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active state in navigation
+                        if (this.classList.contains('main-nav-link')) {
+                            document.querySelectorAll('.main-nav a').forEach(navLink => {
+                                navLink.classList.remove('active');
+                            });
+                            this.classList.add('active');
+                        }
+                    }
+                });
+            });
+            
+            // Update active navigation link on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.main-nav a');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                });
+                
+                // Set home as active when at top
+                if (scrollY < 100) {
+                    navItems.forEach(item => item.classList.remove('active'));
+                    document.querySelector('.main-nav a[href="#home"]').classList.add('active');
+                }
+            });
+            
+            // Add animation classes to service cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe service cards
+            document.querySelectorAll('.service-card, .what-we-do-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Button functionality
+            document.querySelector('.btn-primary').addEventListener('click', function() {
+                const servicesSection = document.querySelector('#services');
+                const navHeight = document.querySelector('.main-nav').offsetHeight;
+                const targetPosition = servicesSection.offsetTop - navHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
