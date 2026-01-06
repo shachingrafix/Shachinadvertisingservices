@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - Shachin Advertising Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* Top Navigation - Matching Homepage */
+        .top-nav {
+            background-color: #00348d;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .top-nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .top-nav .social-icons i {
+            margin-left: 10px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .top-nav .social-icons i:hover {
+            color: #00348d;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background-color: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: #00348d;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #00348d;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Portfolio Hero Section */
+        .portfolio-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .portfolio-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Portfolio Navigation */
+        .portfolio-nav {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+        }
+
+        .portfolio-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-nav li {
+            margin: 0 5px;
+        }
+
+        .portfolio-nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 25px;
+            border-radius: 30px;
+            background-color: #f0f0f0;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .portfolio-nav a:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .portfolio-nav a.active {
+            background-color: #00348d;
+            color: white;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: #00348d;
+            bottom: -10px;
+            left: 20%;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto 80px;
+        }
+
+        .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .portfolio-tag {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        /* Client Testimonials */
+        .testimonials {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        .testimonials .section-title h2 {
+            color: white;
+        }
+
+        .testimonials .section-title p {
+            color: #ccc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .testimonial-card {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            font-size: 5rem;
+            color: #00348d;
+            opacity: 0.2;
+            top: -20px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #00348d;
+        }
+
+        .author-info h4 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #00348d, #004fd8);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #00348d;
+        }
+
+        .btn-primary:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #00348d;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .portfolio-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .top-nav {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .portfolio-nav a {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .portfolio-hero {
+                padding: 70px 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <ul>
+            <li><i class="fas fa-envelope"></i><a href="mailto:shachingrafix@gmail.com"> shachingrafix@gmail.com</a></li>
+            <li><i class="fas fa-clock"></i> Mon - Sat: 9.00 am - 5.30 pm</li>
+        </ul>
+        <ul class="social-icons">
+            <li>For Advertising Solutions Get in Touch With Us 
+                <i class="fab fa-instagram"></i> 
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <img src="Logo.jpg" alt="Shachin Advertising Logo">
+            <span>Shachin Advertising</span>
+        </div>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Homepage.html">About Us</a></li>
+            <li><a href="Homepage.html">Services</a></li>
+            <li><a href="Homepage.html" class="active">Our Work</a></li>
+            <li><a href="Homepage.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portfolio Hero Section -->
+    <section class="portfolio-hero">
+        <h1>Our Creative Portfolio</h1>
+        <p>Explore our diverse range of advertising solutions - from stunning outdoor campaigns to captivating graphic designs that have helped brands stand out and succeed.</p>
+        <a href="#outdoor" class="btn btn-primary">View Our Work</a>
+    </section>
+
+    <!-- Portfolio Navigation -->
+    <nav class="portfolio-nav">
+        <ul>
+            <li><a href="#outdoor" class="active">Outdoor Advertising</a></li>
+            <li><a href="#indoor">Indoor Advertising</a></li>
+            <li><a href="#printing">Printing Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Outdoor Advertising Section -->
+    <section class="category-section" id="outdoor">
+        <div class="section-title">
+            <h2>Outdoor Advertising</h2>
+            <p>Transform public spaces into powerful brand canvases with our eye-catching outdoor campaigns</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/518305134_1353921510069083_2768230852432311139_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeHv0EF1QJa58smwQo0MIxCTtRWkOq2Lygy1FaQ6rYvKDJhfMSz_KW5ujy-hLe9l6LCW4tqMOS5Uy1fDSe7fqdm4&_nc_ohc=Yhp4wBLPxMEQ7kNvwHX-45d&_nc_oc=AdnJ75Im6w8EK8Jhin98-WbKGz4DMYySB84VcOpMY2BC4jTGxawfIOtTDfC_M0_Kngk&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=yp-IukzElkx1k2nMoIk4RA&oh=00_AfonqPKzewF927_s9vhq_mLZtNyG4Dvt9EIwvZp---q5jQ&oe=69626AAF" alt="Billboard Advertising">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Havelock City Mall Flag Printintg</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/521530601_1360974596030441_8111274832188694535_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFrHB-eb3CYeMD-HMaQWVjIzTnZSlR0EHTNOdlKVHQQdNsCZOqSsDSyY-74jBcQfj9NZQhHRUFONv5pS6sYlRFZ&_nc_ohc=LJBYUADLRKMQ7kNvwETdM36&_nc_oc=AdmTvflIPl0mn9wtRwu2SjcEACn4XrFL7FfuonQLkQt0ECk7PXqWR-Z3iykuCWv5AJc&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=5Tz97ZXMxtvYxCrqfL4v8w&oh=00_AfrXQzX9JeAiYEL-2WW0rD_8BqvfIqASlK7d_-iE2de2Uw&oe=696258CA" alt="Bus Shelter Advertising">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Madarin Masala Glass Sticker</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/522192384_1360969309364303_2808488236745144415_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFYsHkoa5xTkvMS_JznBA6__ehnLQOC1Qr96GctA4LVCqgi8v3VZk3uwrs7zQwsrcID4mfV65noKZ65xUEp80JU&_nc_ohc=-H3TJIChYG0Q7kNvwG3KyHO&_nc_oc=AdkgVWSRSSiVua3UxzjQS6w2CSFhHeJ9Zqjy9aWKblD37e0lFeV2IDRn5dF51xv_mhI&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=yd_kgsnmzXO8shakum6uiw&oh=00_AfqtLMRiKwRSBn2MXK_RMjj1F9QnEd5sQEjp0f3QTeFHkg&oe=69628D6B" alt="Digital Billboard">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Santhoshi Srikar's Backdrop</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/514414461_1346912687436632_5852476793898315242_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHVPlq_FQTMY1Z7GPVxpGLNq6iLiF8IqEWrqIuIXwioRTjwsl3l_jcIq0yKBHtfAM7BBYw3b8ZnadZztIN0GX3r&_nc_ohc=2h5Mgdo9_M8Q7kNvwE8YlCc&_nc_oc=AdlUa3_QLB7c804_j1_frn6mLgRLSF2dCKBOr5kDgS-E_0K3CL0gB7VgEXtKBwv_Cho&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=w_-jSlbQ5S_7e-cezTeBIg&oh=00_AfoO642Y3pSnMifx2dTd2uJ19HTS69J8h4oU772UC7GBvQ&oe=696286D1" alt="Digital Billboard">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Simply Glow Embossed Light Board</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/509419170_1331136765680891_2854538934618942360_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHuPRAc0PPjJPZTiVdKO4bzvBnMU53I4BG8GcxTncjgEXMkZYVLMKLK7RzpVXR7IHrxjqdS7BaEI82qLR9rFOqL&_nc_ohc=PLkhbV-bXI0Q7kNvwG-1miu&_nc_oc=AdkLInp7IClxyrfDcmjdVu3Vc2l16WOvq5gHVhhB0wPl7zjMeWajO9UdUqAfUBnnfVY&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=Ec6ocD8r15OTkjsM3zAoTw&oh=00_AfoNn-SV10Ag2FB3HKKtEPS1Bvq9VzqMrMpmZIdZ8wY1QQ&oe=6962666C" alt="Digital Billboard">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Bond International Board</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/509430048_1331990338928867_1978724771161733480_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeERR51HV1rkymn9_ZLUsbkvkuvFsFBrSBmS68WwUGtIGWT-uKJWMnRoIET34obW7Iz-j-jo8823OJeFLPZjBEy3&_nc_ohc=NONMaHXJErUQ7kNvwFObRGo&_nc_oc=AdmbRqPFFzHZh5JlA9NQz_Aon3gP-RhNnHPjuo4POehyZ4ZOAdnssHJue1FErVyefTU&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=uxzbpb6zKF0lDmWzIazODg&oh=00_Afr8PK5OMT6PTfL7_83Id9UEVHQLC5tVE9qGK9dMuvWUMQ&oe=696288A8" alt="Digital Billboard">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Yara Global Light Box</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indoor Advertising Section -->
+    <section class="category-section" id="indoor">
+        <div class="section-title">
+            <h2>Indoor Advertising</h2>
+            <p>Captivate audiences in commercial spaces with our innovative indoor advertising solutions</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/505352531_1320337710094130_3458570109660267859_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeExC4QSyLw0ulw5623jtkkdIfqHqOh3KJMh-oeo6Hcok8Uf749ENC51tVzLYzmORG4JUE5gtDEEzK7shc5RtmbY&_nc_ohc=OfoAn-NgZisQ7kNvwHrTvv6&_nc_oc=AdkuPDhuNLl1tAWo_u2v4gBOtd5J76KEBUBQs4QzYzeznyjy6vo6amriAhACNypipiI&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=QD_ZpnxwG6lmYIv59mTw4A&oh=00_Afo8b9TBLWCfp2ZQ8JDWs-GJfPipuIf4xpBghZeoFlTt4Q&oe=69628482" alt="Mall Advertising">
+                </div>
+                <div class="portfolio-content">
+                    <h3>3D Acrylic Letters</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/503155037_1317705510357350_1412094865989438573_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGY1EiAFDRVLCipMyt9op73QMRZS_4D0_FAxFlL_gPT8YFgxqX1H3h3PgbuvBBfn94Ff5ACMzmU1rgc6FuhTntH&_nc_ohc=IWBo5t2Ty5EQ7kNvwHnyo8T&_nc_oc=AdnoRJMT_dSEvztSeZzyvoUDM1DSHbMEzbAS8iNLJTX5CjWEPrK-Muy1ttVNOgW2DlQ&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=qBAi0zJP5D_mnD8gnl1EEg&oh=00_AfohzqDuBfZ-1Nji2hfZPn-xzhYDEKTTE9GSubstjfbI3A&oe=696281BE" alt="Office Lobby Advertising">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Tharagai Matrimony Acrylic Name Board</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/497729494_1299644448830123_2913970712023867498_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeH6TQR4MWNsx7sCDuwZtk5Fq8pezgFsFO6ryl7OAWwU7gnf0v32SX_eLTbc4JMKBlUHxuF3q3pGYnnOdMRH48wh&_nc_ohc=KXnOKkbAR5sQ7kNvwH-45s5&_nc_oc=AdnbyQOGQUYtXd4t34Tuym_R4ZijfD-Oe0VIYYGlZpQcub0jnxE8D1PmpcdT2-SHjAE&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=--gVz9FFDnJaaPo1cCCsIA&oh=00_Afqfhom83uZzUlayclq_tmKfapeqxpcLupdPdYb-INA2gg&oe=696277AF" alt="Retail Store Advertising">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Adhiran Movie Promotional Banner</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Printing Project Section -->
+    <section class="category-section" id="graphic">
+        <div class="section-title">
+            <h2>Printing Projects</h2>
+            <p>Creative visual solutions that communicate brand identity and messaging effectively</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://graphicsfamily.com/wp-content/uploads/2020/10/Flat-office-id-card-design-template-free-scaled.jpg" alt="Logo Design">
+                </div>
+                <div class="portfolio-content">
+                    <h3>ID Card and Lanyard</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://www.creativeartsdesigning.in/wp-content/uploads/2017/03/QR-Visiting-card-single-side.jpg" alt="Brochure Design">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Business Cards</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://www.anim8.lk/wp-content/uploads/2022/04/ths_8026-edit_3.jpeg" alt="Packaging Design">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Bill Books</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://printo-s3.dietpixels.net/site/2024/Rubber%20stamp/PLA/1280_1712676829.jpg?quality=70&format=webp&w=1920" alt="Packaging Design">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Self Ink Seals</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://www.gavi.lk/wp-content/uploads/2022/08/book-cover-Design-Sri-Lanka-3-550x550.jpg" alt="Packaging Design">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Book Printing</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img">
+                    <img src="https://images.squarespace-cdn.com/content/v1/6050cacb43a94a74eb260675/1724146264577-6OLRUMV9FV2M96C3RVZG/acp-tonbridge-print-folded-leaflets.jpg" alt="Packaging Design">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Leaflet Printing</h3>
+                    <div class="portfolio-tags">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p>What our clients say about our work and services</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Shachin Advertising transformed our brand visibility with their innovative outdoor campaign. The billboards they designed and placed have significantly increased our customer engagement."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RM</div>
+                    <div class="author-info">
+                        <h4>Rajitha Mendis</h4>
+                        <p>Marketing Director, Street Burger</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "The graphic design work by Shachin Advertising perfectly captured our brand essence. Their attention to detail and creative approach exceeded our expectations."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SP</div>
+                    <div class="author-info">
+                        <h4>Sam Perera</h4>
+                        <p>CEO, Power Consult</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "From indoor signage to complete mall branding, Shachin Advertising delivered exceptional quality and professionalism. Their team understood our vision perfectly."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div class="author-info">
+                        <h4>Anusha Kumar</h4>
+                        <p>Operations Manager, Havelock City Mall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h2>Ready to Showcase Your Brand?</h2>
+        <p>Let's collaborate to create advertising solutions that make your brand stand out. Contact us today to discuss your project.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.link/tfdxme" class="btn btn-primary">Start Your Project</a>
+            <a href="Homepage.html" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Shachin Advertising</h3>
+                <p>We help brands stand tall outdoors and shine online through bold advertising and creative design.</p>
+                <p>"Turn Streets Into Stories, and Designs Into Impact."</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Homepage.html">Home</a></li>
+                    <li><a href="Homepage.html">About Us</a></li>
+                    <li><a href="Homepage.html">Services</a></li>
+                    <li><a href="Homepage.html">Our Work</a></li>
+                    <li><a href="Homepage.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#outdoor">Outdoor Advertising</a></li>
+                    <li><a href="#indoor">Indoor Advertising</a></li>
+                    <li><a href="#graphic">Graphic Designing</a></li>
+                    <li><a href="#printing">Digital & Offset Printing</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> shachingrafix@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Sat: 9.00 am - 5.30 pm</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+                </ul>
+                <div class="social-icons" style="margin-top: 15px;">
+                    <i class="fab fa-instagram"></i> 
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Shachin Advertising Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Portfolio filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Portfolio navigation
+            const portfolioLinks = document.querySelectorAll('.portfolio-nav a');
+            const portfolioSections = document.querySelectorAll('.category-section');
+            
+            portfolioLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    portfolioLinks.forEach(item => item.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Get target section ID
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    // Scroll to target section
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animation for portfolio items on scroll
+            const portfolioObserverOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const portfolioObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, portfolioObserverOptions);
+            
+            // Observe portfolio items
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                portfolioObserver.observe(item);
+            });
+            
+            // Highlight active section based on scroll position
+            window.addEventListener('scroll', function() {
+                let current = '';
+                portfolioSections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                portfolioLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // If at top, highlight first link
+                if (scrollY < 300) {
+                    portfolioLinks.forEach(link => link.classList.remove('active'));
+                    portfolioLinks[0].classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
